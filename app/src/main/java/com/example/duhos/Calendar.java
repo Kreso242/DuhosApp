@@ -20,6 +20,8 @@ public class Calendar extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(Calendar.this,MainActivity.class);
-        startActivity(intent);//put your code here
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
     }
 }

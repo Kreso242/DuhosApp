@@ -130,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (circleMenu.isOpened())
             circleMenu.closeMenu();
+
         else
             finish();
     }

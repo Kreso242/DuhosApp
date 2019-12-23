@@ -22,6 +22,8 @@ public class Molitva extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(Molitva.this,MainActivity.class);
-        startActivity(intent);//put your code here
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
     }
 }
