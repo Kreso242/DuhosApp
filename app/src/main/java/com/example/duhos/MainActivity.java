@@ -1,6 +1,7 @@
 package com.example.duhos;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
     ImageButton duhosButton;
 
     @Override
+    public <T extends View> T findViewById(int id) {
+        return super.findViewById(id);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -27,13 +33,13 @@ public class MainActivity extends AppCompatActivity {
         duhosButton = (ImageButton) findViewById(R.id.idDuhosButton);
         circleMenu = (CircleMenu) findViewById(R.id.circle_menu);
 
+
         circleMenu.setMainMenu(Color.parseColor("#CDCDCD"), R.mipmap.duhos, R.mipmap.icon_cancel);
         circleMenu.addSubMenu(Color.parseColor("#258CFF"), R.mipmap.prayer)
                 .addSubMenu(Color.parseColor("#30A400"), R.mipmap.multimedia)
                 .addSubMenu(Color.parseColor("#FF4B32"), R.mipmap.calendar)
                 .addSubMenu(Color.parseColor("#8A39FF"), R.mipmap.questions)
                 .addSubMenu(Color.parseColor("#FF6A00"), R.mipmap.songs);
-
 
         circleMenu.setOnMenuSelectedListener(new OnMenuSelectedListener() {
 
@@ -45,24 +51,31 @@ public class MainActivity extends AppCompatActivity {
                                                              h.postDelayed(new Runnable() {
                                                                  public void run() {
                                                                      Intent intent = new Intent(MainActivity.this,Molitva.class);
-                                                                     startActivity(intent);//put your code here
+                                                                     startActivity(intent);
+                                                                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                                                                  }
 
                                                              }, delay);
+
                                                              break;
                                                          case 1:
                                                              h.postDelayed(new Runnable() {
                                                                  public void run() {
                                                                      Intent intent = new Intent(MainActivity.this,Multimedia.class);
-                                                                     startActivity(intent);//put your code here
+                                                                     startActivity(intent);
+                                                                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
                                                                  }
 
-                                                             }, delay);                                                             break;
+                                                             }, delay);
+                                                             break;
                                                          case 2:
                                                              h.postDelayed(new Runnable() {
                                                                  public void run() {
                                                                      Intent intent = new Intent(MainActivity.this,Calendar.class);
-                                                                     startActivity(intent);//put your code here
+                                                                     startActivity(intent);
+                                                                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
                                                                  }
 
                                                              }, delay);
@@ -71,7 +84,9 @@ public class MainActivity extends AppCompatActivity {
                                                              h.postDelayed(new Runnable() {
                                                                  public void run() {
                                                                      Intent intent = new Intent(MainActivity.this,Questions.class);
-                                                                     startActivity(intent);//put your code here
+                                                                     startActivity(intent);
+                                                                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
                                                                  }
 
                                                              }, delay);
@@ -80,7 +95,9 @@ public class MainActivity extends AppCompatActivity {
                                                              h.postDelayed(new Runnable() {
                                                                  public void run() {
                                                                      Intent intent = new Intent(MainActivity.this,Songs.class);
-                                                                     startActivity(intent);//put your code here
+                                                                     startActivity(intent);
+                                                                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
                                                                  }
 
                                                              }, delay);
@@ -95,10 +112,16 @@ public class MainActivity extends AppCompatActivity {
         duhosButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (circleMenu.isOpened())
+                if (circleMenu.isOpened()) {
                     circleMenu.closeMenu();
-                else
+                    duhosButton.setScaleX((float) 0.5);
+                    duhosButton.setScaleY((float) 0.5);
+                }
+                else {
                     circleMenu.openMenu();
+                    duhosButton.setScaleX((float) 0.45);
+                    duhosButton.setScaleY((float) 0.45);
+                }
             }
         });
     }
