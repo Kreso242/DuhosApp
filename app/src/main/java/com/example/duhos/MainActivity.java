@@ -20,11 +20,6 @@ public class MainActivity extends AppCompatActivity {
     ImageButton duhosButton;
 
     @Override
-    public <T extends View> T findViewById(int id) {
-        return super.findViewById(id);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -72,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                                                          case 2:
                                                              h.postDelayed(new Runnable() {
                                                                  public void run() {
-                                                                     Intent intent = new Intent(MainActivity.this,Calendar.class);
+                                                                     Intent intent = new Intent(MainActivity.this, CalendarClass.class);
                                                                      startActivity(intent);
                                                                      overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 

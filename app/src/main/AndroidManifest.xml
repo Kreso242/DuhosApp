@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Songs"></activity>
         <activity android:name=".Questions" />
-        <activity android:name=".Calendar" />
+        <activity android:name=".CalendarClass" />
         <activity android:name=".Multimedia" />
         <activity android:name=".Molitva" />
         <activity android:name=".MainActivity">

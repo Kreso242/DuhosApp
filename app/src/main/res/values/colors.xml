@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#091055</color>
-    <color name="colorPrimaryDark">#091055</color>
-    <color name="colorAccent">#091055</color>
+    <color name="duhosPlava">#091055</color>
 </resources>
