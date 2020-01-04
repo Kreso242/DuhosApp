@@ -1,32 +1,24 @@
 package com.example.duhos;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.timessquare.CalendarPickerView;
-
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class CalendarClass extends AppCompatActivity {
 
@@ -40,6 +32,8 @@ public class CalendarClass extends AppCompatActivity {
     List<String> Mjesta=new ArrayList<String>();
 
     List<Date> dates=new ArrayList<Date>();
+
+    List<String> exDatesString=new ArrayList<String>();
 
 
                 @Override
@@ -55,9 +49,18 @@ public class CalendarClass extends AppCompatActivity {
                     Date today = new Date();
 
 
-                    Date mydate = new Date(System.currentTimeMillis() - (1000 * 60 * 60 * 24));
+
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-                    String yesterday = dateFormat.format(mydate);
+
+
+                    for(int i=1;i<366;i++) {
+                        SimpleDateFormat dateFormat1 = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+                        Calendar calendar1 = Calendar.getInstance();
+                        calendar1.setTime(new Date());
+                        calendar1.add(Calendar.DATE, -i);
+                        String yesterdayAsString = dateFormat.format(calendar1.getTime());
+                        exDatesString.add(yesterdayAsString);
+                    }
                     //Toast.makeText(getApplication().getApplicationContext(),yesterday.toString(),Toast.LENGTH_SHORT).show();
 
                     Date mydate2 = new Date();
@@ -68,9 +71,13 @@ public class CalendarClass extends AppCompatActivity {
                             .withSelectedDate(today);
 
                     FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-                    DatabaseReference mDbRef= FirebaseDatabase.getInstance().getReference()
-                            .child("Događaji").child(yesterday);
+                    DatabaseReference mDbRef;
+
+                    for(int i=0;i<365;i++) {
+                    mDbRef = mDatabase.getReference("Događaji/").child(exDatesString.get(i));
                     mDbRef.removeValue();
+                    }
+
                     mDbRef = mDatabase.getReference("Događaji/");
 
                     mDbRef.addValueEventListener(new ValueEventListener() {
@@ -174,8 +181,8 @@ public class CalendarClass extends AppCompatActivity {
     }
 
     private void openDialog(String datum,String naziv,String mjesto,String vrijeme) {
-                    DialogClass dialogClass=new DialogClass();
-                    dialogClass.show(getSupportFragmentManager(),datum + "&" + naziv + "&" + mjesto + "&" + vrijeme);
+                    Exampledialog exampledialog=new Exampledialog();
+                    exampledialog.show(getSupportFragmentManager(),datum + "&" + naziv + "&" + mjesto + "&" + vrijeme+"&");
     }
 
     @Override
@@ -185,7 +192,6 @@ public class CalendarClass extends AppCompatActivity {
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 
     }
-
 
 
 }

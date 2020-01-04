@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/idTexDatum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Datum: "
+        android:textSize="7pt"
+        android:textColor="#000"
+        android:layout_marginLeft="25dp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/idTextLokacija"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Lokacija: "
+        android:textSize="7pt"
+        android:textColor="#000"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@+id/idTexDatum"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/idTextVrijeme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Vrijeme: "
+        android:textSize="7pt"
+        android:textColor="#000"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@+id/idTextLokacija"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/idTextVidimoSe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Vidimo se! "
+        android:textSize="7pt"
+        android:textColor="#000"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@+id/idTextVrijeme"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/idTextPodsjetime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Podsjeti me: "
+        android:textSize="8.5pt"
+        android:textColor="#000"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@+id/idTextVidimoSe"
+        >
+    </TextView>
+
+    <Switch
+        android:id="@+id/idSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idTextVidimoSe"
+        android:layout_toRightOf="@+id/idTextPodsjetime"
+        android:layout_marginLeft="10dp"
+        >
+    </Switch>
+
+    <TextView
+        android:id="@+id/idSat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="5pt"
+        android:textColor="#000"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@id/idSwitch"
+        >
+    </TextView>
+
+
+
+
+</RelativeLayout>

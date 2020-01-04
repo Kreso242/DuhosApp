@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'realm-android'
 
 android {
     compileOptions {
@@ -10,7 +11,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.duhos"
-        minSdkVersion 16
+        minSdkVersion 20
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -36,5 +37,6 @@ dependencies {
     implementation 'com.applandeo:material-calendar-view:1.7.0'
     implementation 'com.github.sundeepk:compact-calendar-view:3.0.0'
     implementation 'com.squareup:android-times-square:1.6.5@aar'
+    implementation "com.android.support:support-compat:29.0.0"
 
 }
