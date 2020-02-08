@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class CalendarClass extends AppCompatActivity {
 
@@ -68,8 +67,9 @@ public class CalendarClass extends AppCompatActivity {
                     DatabaseReference mDbRef; //referenca
 
                     for(int i=0;i<365;i++) { //za 365 dana
-                    mDbRef = mDatabase.getReference("Događaji/").child(exDatesString.get(i)); //gledaj jel postoji dijete u bazi koje se zove kao datum koji je prosao
-                    mDbRef.removeValue();                                                           //ako ima izbrisi iz baze
+                    DatabaseReference mDbRefDogadjaj = FirebaseDatabase.getInstance().getReference("Događaji");
+                    DatabaseReference mDbRefDate = mDbRefDogadjaj.child(exDatesString.get(i));//gledaj jel postoji dijete u bazi koje se zove kao datum koji je prosao
+                    mDbRefDate.removeValue();                                                 //ako ima izbrisi iz baze
                     }
 
                     mDbRef = mDatabase.getReference("Događaji/"); //fokusiraj se na dogadjaje u bazi
@@ -136,10 +136,12 @@ public class CalendarClass extends AppCompatActivity {
                                 calendar.highlightDates(dates); //oznaci na kalendari sve datume iz liste dates
                             }
 
+                            /*
                             for(int i=0;i<br;i++){
                                 if(Datumi.get(i).equals(danas)) //ako je kliknuti datum danas, otvori automatski njegove informacije
                                     openDialog(Datumi.get(i).toString(),Nazivi.get(i).toString(),Mjesta.get(i).toString(),Vremena.get(i).toString());
                             }
+                            */
 
                             calendar.setOnDateSelectedListener(new CalendarPickerView.OnDateSelectedListener() { //na kliknuti datum
                                 @Override

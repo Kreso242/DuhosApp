@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.hitomi.cmlibrary.CircleMenu;
 import com.hitomi.cmlibrary.OnMenuSelectedListener;
@@ -18,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     CircleMenu circleMenu;
     private int delay=800;
     ImageButton duhosButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,9 +123,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (circleMenu.isOpened())
+       if (circleMenu.isOpened())
             circleMenu.closeMenu();
-
         else
             finish();
     }
