@@ -147,7 +147,10 @@ public class Exampledialog extends AppCompatDialogFragment{
                         if(aSwitch.isChecked()){
                                 Intent intent = new Intent(getContext(), Alarm.class);
                                 intent.putExtra("datum",datum);
+                                intent.putExtra("naziv",naziv);
+                                intent.putExtra("vrijeme",vrijeme);
                                 intent.putExtra("lista",datumi);
+                                 intent.putExtra("lokacija",mjesto);
                                 getContext().startActivity(intent);
                         }
                         if(!aSwitch.isChecked()){
