@@ -23,7 +23,7 @@ public class ReminderBroadcast extends BroadcastReceiver{
         String naziv= intent.getStringExtra("naziv");
         String vrijeme= intent.getStringExtra("vrijeme");
         String lokacija= intent.getStringExtra("lokacija");
-        String sve=prayEmoji+naziv + " u "+vrijeme+"h "+"\n"+locationEmoji+" "+lokacija+"\n"+handEmoji+"Vidimo se!";
+        String sve=prayEmoji+" "+naziv + " u "+vrijeme+"h "+"\n"+locationEmoji+" "+lokacija+"\n"+handEmoji+" Vidimo se!";
 
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context,"notify")

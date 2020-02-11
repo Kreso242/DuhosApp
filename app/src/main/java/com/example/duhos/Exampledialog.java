@@ -68,10 +68,10 @@ public class Exampledialog extends AppCompatDialogFragment{
         }
 
         String tag=getTag();
-        String datum=tag.split("&")[0];
-        String naziv=tag.split("&")[1];
-        String mjesto=tag.split("&")[2];
-        String vrijeme=tag.split("&")[3];
+        String datum=tag.split("§")[0];
+        String naziv=tag.split("§")[1];
+        String mjesto=tag.split("§")[2];
+        String vrijeme=tag.split("§")[3];
 
 
         for(int i=0;i<list.size();i++){
@@ -106,7 +106,7 @@ public class Exampledialog extends AppCompatDialogFragment{
 
         textViewDatum.setText(calendarEmoji+" Datum: "+datum);
         textViewMjesto.setText(locationEmoji+" Lokacija: "+mjesto);
-        textViewVrijeme.setText(timeEmoji+" Vrijeme: "+vrijeme);
+        textViewVrijeme.setText(timeEmoji+" Vrijeme: "+vrijeme+"h");
         textViewVidimoSe.setText(handEmoji+" Vidimo se!\n");
         textViewPodsjetiMe.setText(alarmEmoji+" Podsjeti me: ");
 

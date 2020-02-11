@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalendarClass">
+    tools:context=".CalendarClass"
+    >
 
     <com.squareup.timessquare.CalendarPickerView
         android:id="@+id/calendar_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:tsquare_titleTextColor="@color/bijela"
+        app:tsquare_headerTextColor="@color/bijela"
         />
-
 
 </RelativeLayout>

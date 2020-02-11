@@ -1,8 +1,10 @@
 package com.example.duhos;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -12,6 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.timessquare.CalendarPickerView;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,7 +25,7 @@ import java.util.List;
 public class CalendarClass extends AppCompatActivity {
 
     private static final String TAG ="TAG";
-    int count = 0; //brojac znakova '&'
+    int count = 0; //brojac znakova '§'
     int br=0; //brojac dogadjaja
 
     //liste za događaje
@@ -43,7 +46,6 @@ public class CalendarClass extends AppCompatActivity {
                     setContentView(R.layout.activity_calendar);
 
                     CalendarPickerView calendar = (CalendarPickerView) findViewById(R.id.calendar_view);
-
                     Date today = new Date(); //danasnji datum
                     Calendar nextYear = Calendar.getInstance();
                     nextYear.add(Calendar.YEAR, 1); //prikazi kalendar za jednu godinu unaprijed
@@ -80,39 +82,39 @@ public class CalendarClass extends AppCompatActivity {
                             String podatakDogadjaja = dataSnapshot.getValue().toString(); //svi događaji su predsatvljeni jednim stringom i nekim znakovima
 
                             //uredi string tako da zamjenimo nepotrebne znakove i lakse procitamo zapis
-                            podatakDogadjaja = podatakDogadjaja.replace("{", "&");
-                            podatakDogadjaja = podatakDogadjaja.replace("}", "&");
+                            podatakDogadjaja = podatakDogadjaja.replace("{", "§");
+                            podatakDogadjaja = podatakDogadjaja.replace("}", "§");
                             podatakDogadjaja = podatakDogadjaja.replace("=", "");
                             podatakDogadjaja = podatakDogadjaja.replace(",", "");
-                            podatakDogadjaja = podatakDogadjaja.replace("Vrijeme", "&");
-                            podatakDogadjaja = podatakDogadjaja.replace("Naziv", "&");
-                            podatakDogadjaja = podatakDogadjaja.replace("Mjesto", "&");
-                            podatakDogadjaja = podatakDogadjaja.replace("&&", "&");
-                            podatakDogadjaja = podatakDogadjaja.replace(" &", "&");
-                            podatakDogadjaja = podatakDogadjaja.replace("& ", "&");
+                            podatakDogadjaja = podatakDogadjaja.replace("Vrijeme", "§");
+                            podatakDogadjaja = podatakDogadjaja.replace("Naziv", "§");
+                            podatakDogadjaja = podatakDogadjaja.replace("Mjesto", "§");
+                            podatakDogadjaja = podatakDogadjaja.replace("§§", "§");
+                            podatakDogadjaja = podatakDogadjaja.replace(" §", "§");
+                            podatakDogadjaja = podatakDogadjaja.replace("§ ", "§");
 
 
-                            for (int i = 0; i < podatakDogadjaja.length(); i++) { //prolazi podatkom dogadjaja i prebroj znakove '&'
-                                if (podatakDogadjaja.charAt(i) == '&') {
+                            for (int i = 0; i < podatakDogadjaja.length(); i++) { //prolazi podatkom dogadjaja i prebroj znakove '§'
+                                if (podatakDogadjaja.charAt(i) == '§') {
                                     count++;
                                 }
                             }
 
                             for (int i = 1; i < count; i = i + 4) {
-                                Datumi.add(podatakDogadjaja.split("&")[i]); //iza svakog četvrtog znaka '&' se nalazi datum
+                                Datumi.add(podatakDogadjaja.split("§")[i]); //iza svakog četvrtog znaka '§' se nalazi datum
                                 br++;
                             }
 
                             for (int i = 2; i < count; i = i + 4) {
-                                Vremena.add(podatakDogadjaja.split("&")[i]); //iza svakog četvrtog znaka '&' se nalazi vrijeme
+                                Vremena.add(podatakDogadjaja.split("§")[i]); //iza svakog četvrtog znaka '§' se nalazi vrijeme
                             }
 
                             for (int i = 3; i < count; i = i + 4) {
-                                Mjesta.add(podatakDogadjaja.split("&")[i]); //iza svakog četvrtog znaka '&' se nalazi mjesto
+                                Mjesta.add(podatakDogadjaja.split("§")[i]); //iza svakog četvrtog znaka '§' se nalazi mjesto
                             }
 
                             for (int i = 4; i < count; i = i + 4) {
-                                Nazivi.add(podatakDogadjaja.split("&")[i]); //iza svakog četvrtog znaka '&' se nalazi naziv
+                                Nazivi.add(podatakDogadjaja.split("§")[i]); //iza svakog četvrtog znaka '§' se nalazi naziv
                             }
 
                             for (int i = 0; i < br; i++) { //svim datumima u listi promijeni format ('-' -> '/')
@@ -178,7 +180,7 @@ public class CalendarClass extends AppCompatActivity {
     //otvori dialog
     private void openDialog(String datum,String naziv,String mjesto,String vrijeme) {
                     Exampledialog exampledialog=new Exampledialog();
-                    exampledialog.show(getSupportFragmentManager(),datum + "&" + naziv + "&" + mjesto + "&" + vrijeme+"&");//kao tag stavi informacije kliknutog dogadjaja da se mogu dohvatiti iz dialoga
+                    exampledialog.show(getSupportFragmentManager(),datum + "§" + naziv + "§" + mjesto + "§" + vrijeme+"§");//kao tag stavi informacije kliknutog dogadjaja da se mogu dohvatiti iz dialoga
     }
 
     @Override

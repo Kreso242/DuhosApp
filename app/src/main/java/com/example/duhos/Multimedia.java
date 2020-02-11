@@ -9,7 +9,6 @@ import com.hitomi.cmlibrary.CircleMenu;
 
 public class Multimedia extends AppCompatActivity {
 
-    CircleMenu circleMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

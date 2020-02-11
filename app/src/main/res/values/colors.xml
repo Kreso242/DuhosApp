@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="duhosPlava">#091055</color>
+    <color name="bijela">#ffffff</color>
+    <color name="siva">#F1EFEF</color>
+
+    <color name="calendar_highlighted_day_bg">#FF5457</color> // boja oznacenih dana
+    <color name="calendar_active_month_bg">#fff</color> //boja svih dana u mjesecu
+    <color name="calendar_bg">#091055</color> //nazivi mjeseca  background
+    <color name="calendar_divider">#091055</color> //crte izmedju dana
+    <color name="calendar_inactive_month_bg">#091055</color> //neaktivni dani
+    <color name="calendar_selected_day_bg">#80FA52</color> //stisnuti dan
+    <color name="calendar_text_inactive">#fff</color>
+    <color name="calendar_text_active">#091055</color>
+    <color name="calendar_text_unselectable">#091055</color>
 </resources>
