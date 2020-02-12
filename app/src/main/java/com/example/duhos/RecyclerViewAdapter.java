@@ -35,14 +35,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-         holder.textViewPitanja.setText(pitanja.get(position));
-         holder.textViewOdgovori.setText(odgovori.get(position));
-         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Toast.makeText(context,pitanja.get(position),Toast.LENGTH_SHORT).show();
-             }
-         });
+        holder.textViewPitanja.setText(pitanja.get(position));
+        holder.textViewOdgovori.setText(odgovori.get(position));
+        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context,pitanja.get(position),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

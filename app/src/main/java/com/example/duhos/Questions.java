@@ -43,6 +43,7 @@ public class Questions extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String podatak = dataSnapshot.getValue().toString();
                 podatak = podatak.replace("[null,", "");
+                podatak = podatak.replace("null,", "");
                 podatak = podatak.replace("]", "");
                 podatak = podatak.replace("{", "§");
                 podatak = podatak.replace("}", "§");
@@ -53,6 +54,7 @@ public class Questions extends AppCompatActivity {
                 podatak = podatak.replace("§§", "§");
                 podatak = podatak.replace(" §", "§");
                 podatak = podatak.replace("§§", "§");
+                podatak = podatak.replace("  §", "");
                 for (int i = 0; i < podatak.length(); i++) { //prolazi podatkom dogadjaja i prebroj znakove '§'
                     if (podatak.charAt(i) == '§') {
                         count++;

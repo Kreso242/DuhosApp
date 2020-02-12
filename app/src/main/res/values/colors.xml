@@ -13,4 +13,7 @@
     <color name="calendar_text_inactive">#fff</color>
     <color name="calendar_text_active">#091055</color>
     <color name="calendar_text_unselectable">#091055</color>
+
 </resources>
+
+
