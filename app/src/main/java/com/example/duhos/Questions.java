@@ -1,23 +1,30 @@
 package com.example.duhos;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
+import android.text.Html;
+import android.view.View;
+import android.view.Window;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.hitomi.cmlibrary.CircleMenu;
 
 import java.util.ArrayList;
+
+import static com.example.duhos.R.drawable.list_item_background;
 
 public class Questions extends AppCompatActivity {
 
@@ -28,8 +35,15 @@ public class Questions extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
-        getSupportActionBar().hide();
 
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.action_bar);
+        ActionBar mActionBar = getSupportActionBar();
+        mActionBar.setBackgroundDrawable(this.getResources().getDrawable(R.color.siva));
+
+        Window window = getWindow();
+        window.setStatusBarColor(ContextCompat.getColor(this,R.color.siva));
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         postaviPitanja();
     }
 
@@ -61,12 +75,12 @@ public class Questions extends AppCompatActivity {
                     }
                 }
 
-                for (int i = 1; i < count; i = i + 2) {
-                    odgovori.add(podatak.split("§")[i]); //iza svakog četvrtog znaka '§' se nalazi datum
+                for (int i = count-1; i > 0; i = i - 2) {
+                    odgovori.add(podatak.split("§")[i-1]); //iza svakog četvrtog znaka '§' se nalazi datum
                     br++;
                 }
 
-                for (int i = 2; i < count; i = i + 2) {
+                for (int i = count-1; i > 1; i = i - 2) {
                     pitanja.add(podatak.split("§")[i]); //iza svakog četvrtog znaka '§' se nalazi vrijeme
                 }
                 initRecyclerView();

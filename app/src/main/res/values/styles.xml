@@ -7,4 +7,6 @@
         <item name="colorPrimaryDark">@color/duhosPlava</item>
         <item name="colorAccent">@color/duhosPlava</item>
     </style>
+
+
 </resources>

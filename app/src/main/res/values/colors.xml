@@ -14,6 +14,9 @@
     <color name="calendar_text_active">#091055</color>
     <color name="calendar_text_unselectable">#091055</color>
 
+    <color name="odgovori_pozadina">#3EC3C8</color>
+
+
 </resources>
 
 
