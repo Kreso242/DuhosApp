@@ -84,7 +84,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     holder.isExpanded=false;
                     holder.relativeLayout.setBackground(context.getResources().getDrawable(list_item_background));
                     Toast.makeText(context,String.valueOf(position),Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
