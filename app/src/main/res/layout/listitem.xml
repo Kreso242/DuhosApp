@@ -11,7 +11,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="20dp"
     android:layout_marginLeft="40dp"
-    android:layout_marginRight="20dp"
+    android:layout_marginRight="40dp"
     android:background="@drawable/list_item_background"
     >
 
@@ -54,5 +54,32 @@
         android:gravity="center"
         android:background="@drawable/list_item_background">
     </TextView>
+
+    <ImageButton
+        android:id="@+id/punoSrce"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@mipmap/puno_srce_foreground"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="25dp"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:background="@drawable/list_item_background"
+        android:layout_alignParentRight="true"
+        android:visibility="gone">
+    </ImageButton>
+    <ImageButton
+        android:id="@+id/praznoSrce"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@mipmap/prazno_srce_foreground"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="25dp"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:background="@drawable/list_item_background"
+        android:layout_alignParentRight="true"
+        android:visibility="visible">
+    </ImageButton>
 </RelativeLayout>
 

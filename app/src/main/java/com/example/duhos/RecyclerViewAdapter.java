@@ -8,8 +8,11 @@ import android.graphics.drawable.DrawableContainer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,7 +28,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> pitanja= new ArrayList<String>();
     private ArrayList<String> odgovori = new ArrayList<String>();
     private Context context;
-    private boolean isExpanded=false;
+
 
 
     public RecyclerViewAdapter(ArrayList<String> pitanja,ArrayList<String> odgovori, Context context) {
@@ -47,6 +50,44 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.textViewPitanja.setText(pitanja.get(position));
         holder.textViewOdgovori.setText(odgovori.get(position));
         holder.textViewBrojevi.setText(String.valueOf(position+1)+".");
+
+        holder.imageButtonPunoSrce.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.imageButtonPunoSrce.setVisibility(View.GONE);
+                holder.imageButtonPraznoSrce.setVisibility(View.VISIBLE);
+            }
+        });
+        holder.imageButtonPraznoSrce.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.imageButtonPunoSrce.setVisibility(View.VISIBLE);
+                holder.imageButtonPraznoSrce.setVisibility(View.GONE);
+
+            }
+        });
+
+        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(holder.isExpanded==false) {
+                    holder.textViewOdgovori.setVisibility(View.VISIBLE);
+                    holder.textViewPitanja.setTextColor(Color.parseColor("#FFFFFF"));
+                    holder.textViewOdgovori.setTextColor(Color.parseColor("#FFFFFF"));
+                    holder.isExpanded=true;
+                    holder. relativeLayout.setBackground(context.getResources().getDrawable(clicked_item_list));
+                    Toast.makeText(context,String.valueOf(position),Toast.LENGTH_SHORT).show();
+                }
+                else if(holder.isExpanded==true){
+                    holder.textViewOdgovori.setVisibility(View.GONE);
+                    holder.textViewPitanja.setTextColor(Color.parseColor("#000000"));
+                    holder.isExpanded=false;
+                    holder.relativeLayout.setBackground(context.getResources().getDrawable(list_item_background));
+                    Toast.makeText(context,String.valueOf(position),Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
     }
 
     @Override
@@ -60,6 +101,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView textViewOdgovori;
         TextView textViewBrojevi;
         RelativeLayout relativeLayout;
+        ImageButton imageButtonPunoSrce;
+        ImageButton imageButtonPraznoSrce;
+        private boolean isExpanded=false;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -67,45 +111,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             textViewOdgovori=itemView.findViewById(R.id.idOdgovor);
             relativeLayout=itemView.findViewById(R.id.parentLayout);
             textViewBrojevi=itemView.findViewById(R.id.redniBrojPitanja);
+            imageButtonPraznoSrce=itemView.findViewById(R.id.praznoSrce);
+            imageButtonPunoSrce=itemView.findViewById(R.id.punoSrce);
 
-            textViewPitanja.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    if(isExpanded==false) {
-                        textViewOdgovori.setVisibility(View.VISIBLE);
-                        textViewPitanja.setTextColor(Color.parseColor("#FFFFFF"));
-                        textViewOdgovori.setTextColor(Color.parseColor("#FFFFFF"));
-                        isExpanded=true;
-                        relativeLayout.setBackground(context.getResources().getDrawable(clicked_item_list));
-                    }
-                    else if(isExpanded==true){
-                        textViewOdgovori.setVisibility(View.GONE);
-                        textViewPitanja.setTextColor(Color.parseColor("#000000"));
-                        isExpanded=false;
-                        relativeLayout.setBackground(context.getResources().getDrawable(list_item_background));
-                    }
-                }
-            });
-
-            textViewOdgovori.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(isExpanded==false) {
-                        textViewOdgovori.setVisibility(View.VISIBLE);
-                        textViewPitanja.setTextColor(Color.parseColor("#FFFFFF"));
-                        textViewOdgovori.setTextColor(Color.parseColor("#FFFFFF"));
-                        isExpanded=true;
-                        relativeLayout.setBackground(context.getResources().getDrawable(clicked_item_list));
-                    }
-                    else if(isExpanded==true){
-                        textViewOdgovori.setVisibility(View.GONE);
-                        textViewPitanja.setTextColor(Color.parseColor("#000000"));
-                        isExpanded=false;
-                        relativeLayout.setBackground(context.getResources().getDrawable(list_item_background));
-                    }
-                }
-            });
         }
     }
 }
