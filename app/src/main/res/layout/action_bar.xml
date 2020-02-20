@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="3dp"
-    tools:context=".MainActivity"
+    tools:context=".Questions"
     android:background="@color/siva">
     <TextView
         android:padding="4dp"
@@ -19,22 +19,26 @@
         android:background="@color/siva"
         android:textColor="@color/duhosPlava"/>
     <ImageButton
+        android:id="@+id/menuButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/icon_menu"
+        android:src="@drawable/menu"
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
         android:background="@color/siva"
+        android:onClick="showMenu"
         >
     </ImageButton>
 
     <ImageButton
-        android:layout_width="25sp"
-        android:layout_height="25sp"
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerInParent="true"
         android:background="@color/siva"
-        android:src="@mipmap/back_foreground">
+        android:src="@drawable/back"
+        android:onClick="goBack">
 
     </ImageButton>
 </RelativeLayout>

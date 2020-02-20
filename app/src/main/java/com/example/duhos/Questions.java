@@ -1,20 +1,16 @@
 package com.example.duhos;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,13 +20,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-import static com.example.duhos.R.drawable.list_item_background;
-
 public class Questions extends AppCompatActivity {
 
     private ArrayList<String> pitanja=new ArrayList<String>();
     private ArrayList<String> odgovori=new ArrayList<String>();
     private int count=0,br=0;
+    private ImageButton backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +40,7 @@ public class Questions extends AppCompatActivity {
         window.setStatusBarColor(ContextCompat.getColor(this,R.color.siva));
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         postaviPitanja();
+
     }
 
     private void postaviPitanja(){
@@ -105,5 +101,16 @@ public class Questions extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 
+    }
+
+    public void goBack(View view) {
+        Intent intent = new Intent(Questions.this,MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
+    }
+
+    public void showMenu(View view) {
+        Toast.makeText(getApplicationContext(),"Menu otvoren",Toast.LENGTH_SHORT).show();
     }
 }

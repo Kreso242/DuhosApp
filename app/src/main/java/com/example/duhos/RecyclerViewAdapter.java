@@ -49,7 +49,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.textViewPitanja.setText(pitanja.get(position));
         holder.textViewOdgovori.setText(odgovori.get(position));
-        holder.textViewBrojevi.setText(String.valueOf(position+1)+".");
+        //  holder.textViewBrojevi.setText(String.valueOf(position+1)+".");
 
         holder.imageButtonPunoSrce.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,9 +68,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         });
 
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if(holder.isExpanded==false) {
+            @Override
+            public void onClick(View v) {
+                if(holder.isExpanded==false) {
                     holder.textViewOdgovori.setVisibility(View.VISIBLE);
                     holder.textViewPitanja.setTextColor(Color.parseColor("#FFFFFF"));
                     holder.textViewOdgovori.setTextColor(Color.parseColor("#FFFFFF"));
@@ -109,7 +109,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             textViewPitanja=itemView.findViewById(R.id.idPitanje);
             textViewOdgovori=itemView.findViewById(R.id.idOdgovor);
             relativeLayout=itemView.findViewById(R.id.parentLayout);
-            textViewBrojevi=itemView.findViewById(R.id.redniBrojPitanja);
+            // textViewBrojevi=itemView.findViewById(R.id.redniBrojPitanja);
             imageButtonPraznoSrce=itemView.findViewById(R.id.praznoSrce);
             imageButtonPunoSrce=itemView.findViewById(R.id.punoSrce);
 

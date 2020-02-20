@@ -27,9 +27,7 @@
             </intent-filter>
         </activity>
         <receiver android:name=".ReminderBroadcast"></receiver>
-        <activity android:name=".com.example.duhos.CalendarClass" />
-        <service android:name=".service.ScheduleService" />
-        <service android:name=".service.NotifyService" />
+
     </application>
 
 </manifest>
