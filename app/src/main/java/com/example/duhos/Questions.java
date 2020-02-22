@@ -40,7 +40,7 @@ public class Questions extends AppCompatActivity {
         window.setStatusBarColor(ContextCompat.getColor(this,R.color.siva));
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         postaviPitanja();
-
+        initRecyclerView();
     }
 
     private void postaviPitanja(){
