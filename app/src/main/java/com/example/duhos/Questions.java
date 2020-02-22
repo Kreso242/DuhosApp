@@ -3,15 +3,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
-import android.widget.ImageButton;
-import android.widget.Toast;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +24,7 @@ public class Questions extends AppCompatActivity {
     private ArrayList<String> pitanja=new ArrayList<String>();
     private ArrayList<String> odgovori=new ArrayList<String>();
     private int count=0,br=0;
-    private ImageButton backButton;
+    private DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +39,7 @@ public class Questions extends AppCompatActivity {
         window.setStatusBarColor(ContextCompat.getColor(this,R.color.siva));
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         postaviPitanja();
-
+        initRecyclerView();
     }
 
     private void postaviPitanja(){
@@ -97,20 +96,38 @@ public class Questions extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(Questions.this,MainActivity.class);
-        startActivity(intent);
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        drawerLayout=findViewById(R.id.drawerLayout);
 
+        if(drawerLayout.isDrawerOpen(Gravity.RIGHT))
+            drawerLayout.closeDrawer(Gravity.RIGHT);
+        else {
+            Intent intent = new Intent(Questions.this, MainActivity.class);
+            startActivity(intent);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        }
     }
 
     public void goBack(View view) {
-        Intent intent = new Intent(Questions.this,MainActivity.class);
-        startActivity(intent);
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        drawerLayout=findViewById(R.id.drawerLayout);
 
+        if(drawerLayout.isDrawerOpen(Gravity.RIGHT))
+            drawerLayout.closeDrawer(Gravity.RIGHT);
+        else {
+            Intent intent = new Intent(Questions.this, MainActivity.class);
+            startActivity(intent);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            drawerLayout.closeDrawer(Gravity.RIGHT);
+        }
     }
 
     public void showMenu(View view) {
-        Toast.makeText(getApplicationContext(),"Menu otvoren",Toast.LENGTH_SHORT).show();
+        drawerLayout=findViewById(R.id.drawerLayout);
+
+        if(drawerLayout.isDrawerOpen(Gravity.RIGHT))
+            drawerLayout.closeDrawer(Gravity.RIGHT);
+        else
+            drawerLayout.openDrawer(Gravity.RIGHT);
+
     }
+
 }
