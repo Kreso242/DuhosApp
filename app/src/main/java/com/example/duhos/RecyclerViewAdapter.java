@@ -59,6 +59,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.textViewOdgovori.setText(odgovori.get(position));
         //  holder.textViewBrojevi.setText(String.valueOf(position+1)+".");
 
+        //TEST
+
 //        Iterator it = srce.entrySet().iterator();
 //        while (it.hasNext()) {
 //            Map.Entry pair = (Map.Entry)it.next();
