@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import static com.example.duhos.R.drawable.clicked_item_list;
@@ -37,6 +38,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private boolean srceShow = false;
     private int pitanjePosition;
     private boolean pitanjeShow = false;
+    private ArrayList<String> listaFavorita= new ArrayList<String>();
 
 
     public RecyclerViewAdapter(ArrayList<String> pitanja,ArrayList<String> odgovori, Context context) {
@@ -73,13 +75,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 //            }
 //        }
 
-        if (srcePosition == position && srceShow){
-            holder.imageButtonPunoSrce.setVisibility(View.VISIBLE);
-            holder.imageButtonPraznoSrce.setVisibility(View.GONE);
-        }else{
-            holder.imageButtonPunoSrce.setVisibility(View.GONE);
-            holder.imageButtonPraznoSrce.setVisibility(View.VISIBLE);
-        }
+
         if (pitanjePosition == position && pitanjeShow){
             holder.textViewOdgovori.setVisibility(View.VISIBLE);
             holder.textViewPitanja.setTextColor(Color.parseColor("#FFFFFF"));
@@ -93,33 +89,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             holder.relativeLayout.setBackground(context.getResources().getDrawable(list_item_background));
         }
 
-        holder.imageButtonPunoSrce.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                holder.imageButtonPunoSrce.setVisibility(View.GONE);
-//                holder.imageButtonPraznoSrce.setVisibility(View.VISIBLE);
-//                srce.remove(position);
-
-                srceShow = false;
-                notifyDataSetChanged();
-//                notifyItemChanged(position);
-//                Toast.makeText(context,String.valueOf(position),Toast.LENGTH_SHORT).show();
-            }
-        });
         holder.imageButtonPraznoSrce.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                holder.imageButtonPunoSrce.setVisibility(View.VISIBLE);
-//                holder.imageButtonPraznoSrce.setVisibility(View.GONE);
-//                srce.put(position, true);
+                listaFavorita.add(pitanja.get(position));
 
-                srcePosition = position;
-                srceShow = true;
-                notifyDataSetChanged();
-//                notifyItemChanged(position);
-//                Toast.makeText(context,String.valueOf(position),Toast.LENGTH_SHORT).show();
             }
         });
+
+        holder.imageButtonPunoSrce.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for(int i=0;i<listaFavorita.size();i++){
+                    if(listaFavorita.get(i)==pitanja.get(position))
+                        listaFavorita.remove(i);
+                }
+            }
+        });
+
 
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
