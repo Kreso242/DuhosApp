@@ -33,7 +33,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private Context context;
     private int srcePosition;
     private HashMap<Integer, Boolean> srce = new HashMap<>();
-//    private ArrayList<Boolean> sr = new ArrayList<>();
+    //    private ArrayList<Boolean> sr = new ArrayList<>();
     private boolean srceShow = false;
     private int pitanjePosition;
     private boolean pitanjeShow = false;
@@ -80,7 +80,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             holder.imageButtonPunoSrce.setVisibility(View.GONE);
             holder.imageButtonPraznoSrce.setVisibility(View.VISIBLE);
         }
-
         if (pitanjePosition == position && pitanjeShow){
             holder.textViewOdgovori.setVisibility(View.VISIBLE);
             holder.textViewPitanja.setTextColor(Color.parseColor("#FFFFFF"));
@@ -162,7 +161,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         TextView textViewPitanja;
         TextView textViewOdgovori;
-        TextView textViewBrojevi;
+        //TextView textViewBrojevi;
         RelativeLayout relativeLayout;
         ImageButton imageButtonPunoSrce;
         ImageButton imageButtonPraznoSrce;
