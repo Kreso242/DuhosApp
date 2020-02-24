@@ -1,22 +1,16 @@
 package com.example.duhos;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.DrawableContainer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.util.ArrayList;
 
@@ -30,6 +24,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> odgovori = new ArrayList<String>();
     private Context context;
     private ArrayList<Boolean> heart = new ArrayList<>();
+    private ArrayList<String> listaFavorita = new ArrayList<String>();
 
     private int pitanjePosition;
     private boolean pitanjeShow = false;
@@ -79,6 +74,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
                 heart.set(position, false);
+                for(int i=0;i<listaFavorita.size();i++){
+                    if(listaFavorita.get(i)==pitanja.get(position)){
+                        listaFavorita.remove(i);
+                    }
+                }
                 holder.imageButtonPunoSrce.setVisibility(hr ? View.VISIBLE : View.GONE);
                 holder.imageButtonPraznoSrce.setVisibility(hr ? View.GONE : View.VISIBLE);
                 notifyDataSetChanged();
@@ -88,6 +88,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
                 heart.set(position, true);
+                listaFavorita.add(pitanja.get(position));
                 holder.imageButtonPunoSrce.setVisibility(hr ? View.VISIBLE : View.GONE);
                 holder.imageButtonPraznoSrce.setVisibility(hr ? View.GONE : View.VISIBLE);
                 notifyDataSetChanged();
