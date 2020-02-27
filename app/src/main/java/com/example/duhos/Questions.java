@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageButton;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,11 +30,14 @@ public class Questions extends AppCompatActivity {
     private ArrayList<Boolean> heart = new ArrayList<>();
     private int count = 0, br = 0;
     private DrawerLayout drawerLayout;
+    private ImageButton share;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
+
+        final ImageButton share = (ImageButton) findViewById(R.id.share);
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.action_bar);
@@ -45,6 +49,13 @@ public class Questions extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         postaviPitanja();
         initRecyclerView();
+
+//        share.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
     }
 
     private void postaviPitanja() {
@@ -145,5 +156,15 @@ public class Questions extends AppCompatActivity {
         Intent intent = new Intent(Questions.this, AskQuestion.class);
         startActivity(intent);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    public void shareContent(View view){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        String shareBody = "ovdje treba uhvatit pitanje i odgovor!";
+        String shareSub = "Pitaj kapelana";
+        intent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+        intent.putExtra(Intent.EXTRA_TEXT, shareBody);
+        startActivity(intent.createChooser(intent, "Share using"));
     }
 }

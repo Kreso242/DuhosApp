@@ -27,6 +27,14 @@
             android:layout_marginBottom="10dp"
             android:textStyle="bold">
         </TextView>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/share"
+            android:src="@android:drawable/ic_menu_share"
+            android:onClick="shareContent"/>
         <TextView
             android:id="@+id/idOdgovor"
             android:layout_width="match_parent"
@@ -83,4 +91,3 @@
         android:visibility="visible">
     </ImageButton>
 </RelativeLayout>
-

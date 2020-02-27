@@ -7,26 +7,82 @@
     android:layout_height="match_parent"
     tools:context=".AskQuestion">
 
+    <RelativeLayout
+        android:id="@+id/kapelani"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+        <ImageButton
+            android:id="@+id/kapelan1Slika"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/bijela"
+            android:src="@drawable/mario_zigman"></ImageButton>
+        <ImageButton
+            android:id="@+id/kapelan2Slika"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:background="@color/bijela"
+            android:src="@drawable/davor_vukovic">
+        </ImageButton>
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/crveniKrugKapelan1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/image_circle_red">
+        </ImageView>
+        <ImageView
+            android:id="@+id/crveniKrugKapelan2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/image_circle_red"
+            android:layout_marginLeft="100dp"
+            >
+        </ImageView>
+        <ImageView
+            android:id="@+id/zeleniKrugKapelan1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/image_circle_green"
+            android:visibility="invisible">
+        </ImageView>
+        <ImageView
+            android:id="@+id/zeleniKrugKapelan2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/image_circle_green"
+            android:layout_marginLeft="100dp"
+            android:visibility="invisible"
+            >
+        </ImageView>
+    </RelativeLayout>
+
     <EditText
         android:id="@+id/mailID"
-        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"/>
-    <EditText
-        android:layout_margin="10dp"
-        android:id="@+id/subjectID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Subject"
-        android:layout_below="@id/mailID"/>
+        android:hint="Email odabranog kapelana"
+        android:layout_below="@id/kapelani"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"/>
+
     <EditText
         android:layout_margin="10dp"
         android:id="@+id/messageID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Message"
-        android:layout_below="@+id/subjectID"/>
+        android:layout_below="@+id/mailID"/>
 
     <Button
         android:id="@+id/posaljiButton"
@@ -34,7 +90,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:text="Pošalji"
-        android:layout_below="@+id/messageID"/>
+        android:layout_below="@+id/messageID"
+        android:layout_margin="10dp"/>
 
 
 </RelativeLayout>
