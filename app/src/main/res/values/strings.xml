@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Duhos</string>
     <string name="emoji">&#9200; Podsjeti me: </string>
+    <string name="kapelan1">vlč. Mario Žigman</string>
+    <string name="kapelan2">vlč. Davor Vuković</string>
 </resources>

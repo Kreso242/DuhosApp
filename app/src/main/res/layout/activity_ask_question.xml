@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AskQuestion">
+    tools:context=".AskQuestion"
+    android:background="@color/bijela">
 
     <RelativeLayout
         android:id="@+id/kapelani"
@@ -14,55 +15,89 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         >
+
+            <RelativeLayout
+                android:id="@+id/kapelan1Layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                    <ImageButton
+                        android:id="@+id/kapelan1Slika"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bijela"
+                        android:src="@drawable/mario_zigman"
+                        android:layout_centerInParent="true">
+                    </ImageButton>
+                <ImageView
+                    android:id="@+id/crveniKrugKapelan1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_circle_red"
+                    android:layout_centerInParent="true">
+                </ImageView>
+                <ImageView
+                    android:id="@+id/zeleniKrugKapelan1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_circle_green"
+                    android:layout_centerInParent="true"
+                    android:visibility="invisible">
+                </ImageView>
+                <TextView
+                    android:id="@+id/imeKapelan1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kapelan1"
+                    android:layout_below="@+id/kapelan1Slika"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="25dp"
+                    android:textColor="#000">
+                </TextView>
+            </RelativeLayout>
+
+
         <RelativeLayout
+            android:id="@+id/kapelan2Layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true">
-        <ImageButton
-            android:id="@+id/kapelan1Slika"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/bijela"
-            android:src="@drawable/mario_zigman"></ImageButton>
-        <ImageButton
-            android:id="@+id/kapelan2Slika"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:background="@color/bijela"
-            android:src="@drawable/davor_vukovic">
-        </ImageButton>
+            android:layout_marginLeft="150dp">
+            <ImageButton
+                android:id="@+id/kapelan2Slika"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bijela"
+                android:src="@drawable/davor_vukovic"
+                android:layout_centerInParent="true">
+            </ImageButton>
+            <ImageView
+                android:id="@+id/crveniKrugKapelan2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/image_circle_red"
+                android:layout_centerInParent="true">
+            </ImageView>
+            <ImageView
+                android:id="@+id/zeleniKrugKapelan2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/image_circle_green"
+                android:layout_centerInParent="true"
+                android:visibility="invisible">
+            </ImageView>
+            <TextView
+                android:id="@+id/imeKapelan2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kapelan2"
+                android:layout_below="@+id/kapelan2Slika"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:textColor="#000">
+            </TextView>
         </RelativeLayout>
-        <ImageView
-            android:id="@+id/crveniKrugKapelan1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_circle_red">
-        </ImageView>
-        <ImageView
-            android:id="@+id/crveniKrugKapelan2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_circle_red"
-            android:layout_marginLeft="100dp"
-            >
-        </ImageView>
-        <ImageView
-            android:id="@+id/zeleniKrugKapelan1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_circle_green"
-            android:visibility="invisible">
-        </ImageView>
-        <ImageView
-            android:id="@+id/zeleniKrugKapelan2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_circle_green"
-            android:layout_marginLeft="100dp"
-            android:visibility="invisible"
-            >
-        </ImageView>
+
+
     </RelativeLayout>
 
     <EditText

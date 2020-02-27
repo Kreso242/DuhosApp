@@ -46,19 +46,15 @@ public class AskQuestion extends AppCompatActivity {
             public void onClick(View v) {
                 if(flag1==false) {
                     kapelan1Krug.setVisibility(View.VISIBLE);
+                    kapelan2Krug.setVisibility(View.INVISIBLE);
                     flag1=true;
-                    if(flag2==false)
-                        mEmail.setText(mailKapelan1);
-                    if(flag2==true)
-                        mEmail.setText(mEmail.getText().toString()+","+mailKapelan1);
+                    flag2=false;
+                    mEmail.setText(mailKapelan1);
                 }
                 else {
-                    kapelan1Krug.setVisibility(View.INVISIBLE);
                     flag1=false;
-                    if(flag2==true)
-                        mEmail.setText(mailKapelan2);
-                    if(flag2==false)
-                        mEmail.setText("");
+                    kapelan1Krug.setVisibility(View.INVISIBLE);
+                    mEmail.setText("");
                 }
             }
         });
@@ -67,20 +63,15 @@ public class AskQuestion extends AppCompatActivity {
             public void onClick(View v) {
                 if(flag2==false) {
                     kapelan2Krug.setVisibility(View.VISIBLE);
+                    kapelan1Krug.setVisibility(View.INVISIBLE);
                     flag2=true;
-                    if(flag1==false)
-                        mEmail.setText(mailKapelan2);
-                    if(flag1==true)
-                        mEmail.setText(mEmail.getText().toString()+","+mailKapelan2);
-
+                    flag1=false;
+                    mEmail.setText(mailKapelan2);
                 }
                 else {
-                    kapelan2Krug.setVisibility(View.INVISIBLE);
                     flag2=false;
-                    if(flag1==true)
-                        mEmail.setText(mailKapelan1);
-                    if(flag1==false)
-                        mEmail.setText("");
+                    kapelan2Krug.setVisibility(View.INVISIBLE);
+                    mEmail.setText("");
                 }
             }
         });
