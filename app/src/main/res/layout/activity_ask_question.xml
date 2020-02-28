@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         >
 
             <RelativeLayout
@@ -101,23 +101,32 @@
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/mailID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email odabranog kapelana"
-        android:layout_below="@id/kapelani"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"/>
+    android:id="@+id/mailID"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Email odabranog kapelana"
+    android:layout_below="@id/kapelani"
+    android:layout_marginTop="30dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:padding="5dp"
+    android:maxLines="1"
+    android:focusable="false"
+    android:background="@drawable/list_item_background"
+    android:drawableStart="@mipmap/email_icon"/>
+
 
     <EditText
         android:layout_margin="10dp"
         android:id="@+id/messageID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Message"
-        android:layout_below="@+id/mailID"/>
+        android:hint="Pitanje"
+        android:layout_below="@+id/mailID"
+        android:lines="6"
+        android:background="@drawable/list_item_background"
+        android:drawableStart="@mipmap/message_icon"
+       />
 
     <Button
         android:id="@+id/posaljiButton"
@@ -125,8 +134,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:text="Pošalji"
-        android:layout_below="@+id/messageID"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:background="@drawable/clicked_item_list"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        />
 
 
 </RelativeLayout>

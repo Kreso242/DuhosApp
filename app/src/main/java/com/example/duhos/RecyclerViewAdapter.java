@@ -58,16 +58,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
         if (pitanjePosition == position && pitanjeShow) {
-            holder.textViewOdgovori.setVisibility(View.VISIBLE);
             holder.textViewPitanja.setTextColor(Color.parseColor("#FFFFFF"));
-            holder.textViewOdgovori.setTextColor(Color.parseColor("#FFFFFF"));
             holder.isExpanded = true;
             holder.relativeLayout.setBackground(context.getResources().getDrawable(clicked_item_list));
+            holder.odgovoriShareSrce.setVisibility(View.VISIBLE);
         } else {
-            holder.textViewOdgovori.setVisibility(View.GONE);
             holder.textViewPitanja.setTextColor(Color.parseColor("#000000"));
             holder.isExpanded = false;
             holder.relativeLayout.setBackground(context.getResources().getDrawable(list_item_background));
+            holder.odgovoriShareSrce.setVisibility(View.GONE);
         }
 
         holder.imageButtonPunoSrce.setOnClickListener(new View.OnClickListener() {
@@ -121,6 +120,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView textViewOdgovori;
         //TextView textViewBrojevi;
         RelativeLayout relativeLayout;
+        RelativeLayout odgovoriShareSrce;
+
         ImageButton imageButtonPunoSrce;
         ImageButton imageButtonPraznoSrce;
         private boolean isExpanded = false;
@@ -130,6 +131,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             textViewPitanja = itemView.findViewById(R.id.idPitanje);
             textViewOdgovori = itemView.findViewById(R.id.idOdgovor);
             relativeLayout = itemView.findViewById(R.id.parentLayout);
+            odgovoriShareSrce=itemView.findViewById(R.id.odgovorShareSrce);
             // textViewBrojevi=itemView.findViewById(R.id.redniBrojPitanja);
             imageButtonPraznoSrce = itemView.findViewById(R.id.praznoSrce);
             imageButtonPunoSrce = itemView.findViewById(R.id.punoSrce);

@@ -1,11 +1,14 @@
 package com.example.duhos;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -31,6 +34,14 @@ public class AskQuestion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ask_question);
 
+        getSupportActionBar().setDisplayOptions(androidx.appcompat.app.ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.action_bar2);
+        ActionBar mActionBar = getSupportActionBar();
+        mActionBar.setBackgroundDrawable(this.getResources().getDrawable(R.color.siva));
+
+        Window window = getWindow();
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.siva));
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
         mEmail = (EditText)findViewById(R.id.mailID);
         mMessage = (EditText)findViewById(R.id.messageID);
@@ -40,6 +51,13 @@ public class AskQuestion extends AppCompatActivity {
 
         kapelan1=(ImageButton)findViewById(R.id.kapelan1Slika);
         kapelan2=(ImageButton)findViewById(R.id.kapelan2Slika);
+
+        mEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"E-mail kapelana se odabire pritiskom na njegovu sliku!",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         kapelan1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,9 +99,6 @@ public class AskQuestion extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sendMail();
-                Intent intent = new Intent(AskQuestion.this, Questions.class);
-                startActivity(intent);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
     }
@@ -92,6 +107,9 @@ public class AskQuestion extends AppCompatActivity {
         if(flag1==false && flag2==false){
             Toast.makeText(getApplicationContext(),"Odaberi kapelana!",Toast.LENGTH_SHORT).show();
         }
+        else if(mMessage.getText().toString().equals("")){
+            Toast.makeText(getApplicationContext(),"Upiši pitanje!",Toast.LENGTH_SHORT).show();
+        }
         else {
             String mail = mEmail.getText().toString();
             String message = mMessage.getText().toString();
@@ -99,9 +117,17 @@ public class AskQuestion extends AppCompatActivity {
 
             //Send Mail
             JavaMailAPI javaMailAPI = new JavaMailAPI(this, mail, subject, message);
-
             javaMailAPI.execute();
+
+            Intent intent = new Intent(AskQuestion.this, Questions.class);
+            startActivity(intent);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         }
     }
 
+    public void goBack(View view) {
+        Intent intent = new Intent(AskQuestion.this, Questions.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
 }
