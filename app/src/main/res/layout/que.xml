@@ -65,6 +65,7 @@
                 android:background="@color/siva"
                 />
 
+
             <ImageButton
                 android:id="@+id/kalendar_menu"
                 android:layout_weight="1"
@@ -105,6 +106,20 @@
                 android:background="@color/siva"/>
         </LinearLayout>
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:orientation="horizontal"
+            android:background="#CCF1EFEF"
+            android:layout_marginRight="88dp"
+            >
+        </LinearLayout>
 
 
     </RelativeLayout>
