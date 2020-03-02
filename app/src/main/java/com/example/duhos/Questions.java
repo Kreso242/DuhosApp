@@ -35,7 +35,7 @@ public class Questions extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_questions);
+        setContentView(R.layout.que);
 
         final ImageButton share = (ImageButton) findViewById(R.id.share);
 
