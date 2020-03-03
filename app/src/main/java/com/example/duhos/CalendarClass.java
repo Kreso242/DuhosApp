@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -191,5 +192,31 @@ public class CalendarClass extends AppCompatActivity {
 
     }
 
+
+    public void goMolitva(View view) {
+        Intent intent = new Intent(CalendarClass.this, Molitva.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+    public void goKalendar(View view) {
+        Intent intent = new Intent(CalendarClass.this, CalendarClass.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+    public void goPitanja(View view) {
+        Intent intent = new Intent(CalendarClass.this, Questions.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+    public void goMultimedija(View view) {
+        Intent intent = new Intent(CalendarClass.this, Multimedia.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+    public void goPjesmarica(View view) {
+        Intent intent = new Intent(CalendarClass.this, Songs.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
 
 }

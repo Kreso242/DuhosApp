@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Questions extends AppCompatActivity {
 
@@ -35,7 +36,7 @@ public class Questions extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.que);
+        setContentView(R.layout.activity_questions);
 
         final ImageButton share = (ImageButton) findViewById(R.id.share);
 
@@ -166,5 +167,31 @@ public class Questions extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
         intent.putExtra(Intent.EXTRA_TEXT, shareBody);
         startActivity(intent.createChooser(intent, "Share using"));
+    }
+
+    public void goMolitva(View view) {
+        Intent intent = new Intent(Questions.this, Molitva.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+    public void goKalendar(View view) {
+        Intent intent = new Intent(Questions.this, CalendarClass.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+    public void goPitanja(View view) {
+        Intent intent = new Intent(Questions.this, Questions.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+    public void goMultimedija(View view) {
+        Intent intent = new Intent(Questions.this, Multimedia.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+    public void goPjesmarica(View view) {
+        Intent intent = new Intent(Questions.this, Songs.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 }

@@ -31,6 +31,7 @@ public class Molitva extends AppCompatActivity {
 */
 
 package com.example.duhos;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -69,6 +70,32 @@ public class Molitva extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    public void goMolitva(View view) {
+        Intent intent = new Intent(Molitva.this, Molitva.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+    public void goKalendar(View view) {
+        Intent intent = new Intent(Molitva.this, CalendarClass.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+    public void goPitanja(View view) {
+        Intent intent = new Intent(Molitva.this, Questions.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+    public void goMultimedija(View view) {
+        Intent intent = new Intent(Molitva.this, Multimedia.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+    public void goPjesmarica(View view) {
+        Intent intent = new Intent(Molitva.this, Songs.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
 

@@ -14,5 +14,104 @@
         app:tsquare_titleTextColor="@color/bijela"
         app:tsquare_headerTextColor="@color/bijela"
         />
+    <LinearLayout
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="bottom"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        android:background="@color/siva"
+        >
+        <ImageButton
+            android:id="@+id/pjesmarica_menu"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:src="@mipmap/pjesmarica_mala"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/siva"
+            android:onClick="goPjesmarica"
+            />
+
+
+        <ImageButton
+            android:id="@+id/kalendar_menu"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:src="@mipmap/kalendar_mali"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/siva"
+            android:onClick="goKalendar"/>
+
+        <ImageButton
+            android:id="@+id/molitva_menu"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:src="@mipmap/molitva_mala"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/siva"
+            android:onClick="goMolitva"/>
+        <ImageButton
+            android:id="@+id/multimedija_menu"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:src="@mipmap/multimedija_mala"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/siva"
+            android:onClick="goMultimedija"/>
+
+        <ImageButton
+            android:id="@+id/pitanja_menu"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:src="@mipmap/pitanja_mala"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/siva"
+            android:onClick="goPitanja"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="88dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:orientation="horizontal"
+        android:background="#CCF1EFEF"
+        >
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="264dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:orientation="horizontal"
+        android:background="#CCF1EFEF"
+        android:layout_marginLeft="165dp"
+        >
+    </LinearLayout>
+
+
 
 </RelativeLayout>
