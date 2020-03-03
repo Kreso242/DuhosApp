@@ -84,34 +84,63 @@
             android:background="@color/siva"
             android:onClick="goPitanja"/>
     </LinearLayout>
-
-
     <LinearLayout
-        android:layout_width="88dp"
+        android:id="@+id/menuOpacityLayout"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:gravity="bottom"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="5dp"
         android:orientation="horizontal"
-        android:background="#CCF1EFEF"
+        android:weightSum="5"
         >
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:background="#CCF1EFEF"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:background="#CCF1EFEF"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:background="#CCF1EFEF"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:background="#CCF1EFEF"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="264dp"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:gravity="bottom"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="5dp"
-        android:orientation="horizontal"
-        android:background="#CCF1EFEF"
-        android:layout_marginLeft="165dp"
-        >
-    </LinearLayout>
-
-
 
 </RelativeLayout>
