@@ -22,7 +22,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class Questions extends AppCompatActivity {
 
@@ -193,5 +192,23 @@ public class Questions extends AppCompatActivity {
         Intent intent = new Intent(Questions.this, Songs.class);
         startActivity(intent);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    public void showFavoriti(View view) {
+        ImageButton imageButtonPraznoSrce;
+        imageButtonPraznoSrce = findViewById(R.id.favoritiPrazno);
+        ImageButton imageButtonPunoSrce;
+        imageButtonPunoSrce = findViewById(R.id.favoritiPuno);
+        imageButtonPunoSrce.setVisibility(View.VISIBLE);
+        imageButtonPraznoSrce.setVisibility(View.GONE);
+    }
+
+    public void hideFavoriti(View view) {
+        ImageButton imageButtonPraznoSrce;
+        imageButtonPraznoSrce = findViewById(R.id.favoritiPrazno);
+        ImageButton imageButtonPunoSrce;
+        imageButtonPunoSrce = findViewById(R.id.favoritiPuno);
+        imageButtonPunoSrce.setVisibility(View.GONE);
+        imageButtonPraznoSrce.setVisibility(View.VISIBLE);
     }
 }

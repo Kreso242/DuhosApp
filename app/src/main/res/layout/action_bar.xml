@@ -19,14 +19,27 @@
         android:background="@color/siva"
         android:textColor="@color/duhosPlava"/>
     <ImageButton
-        android:id="@+id/menuButton"
+        android:id="@+id/favoritiPrazno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/menu"
+        android:src="@mipmap/prazno_srce_siva_pozadina"
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
         android:background="@color/siva"
-        android:onClick="showMenu"
+        android:onClick="showFavoriti"
+        android:visibility="visible"
+        >
+    </ImageButton>
+    <ImageButton
+        android:id="@+id/favoritiPuno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/puno_srce_siva_pozadina"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:background="@color/siva"
+        android:onClick="hideFavoriti"
+        android:visibility="gone"
         >
     </ImageButton>
 
