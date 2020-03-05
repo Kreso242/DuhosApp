@@ -14,6 +14,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -56,6 +57,25 @@ public class Questions extends AppCompatActivity {
 //
 //            }
 //        });
+
+        RecyclerView recyclerView=findViewById(R.id.recyclerView);
+        recyclerView.setOnTouchListener(new OnSwipeTouchListener(Questions.this) {
+            public void onSwipeTop() {
+            }
+            public void onSwipeRight() {
+                Intent intent = new Intent(Questions.this, Multimedia.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+            public void onSwipeLeft() {
+                Intent intent = new Intent(Questions.this, Songs.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+            public void onSwipeBottom() {
+            }
+
+        });
     }
 
     private void postaviPitanja() {

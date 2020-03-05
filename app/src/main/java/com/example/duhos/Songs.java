@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.hitomi.cmlibrary.CircleMenu;
+import com.squareup.timessquare.CalendarPickerView;
 
 public class Songs extends AppCompatActivity {
 
@@ -17,6 +19,26 @@ public class Songs extends AppCompatActivity {
         setContentView(R.layout.activity_songs);
         getSupportActionBar().hide();
 
+
+        TextView pjesmaricaLayout=findViewById(R.id.pjesmarica_layout);
+
+        pjesmaricaLayout.setOnTouchListener(new OnSwipeTouchListener(Songs.this) {
+            public void onSwipeTop() {
+            }
+            public void onSwipeRight() {
+                Intent intent = new Intent(Songs.this, Questions.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+            public void onSwipeLeft() {
+                Intent intent = new Intent(Songs.this, CalendarClass.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+            public void onSwipeBottom() {
+            }
+
+        });
     }
     @Override
     public void onBackPressed() {

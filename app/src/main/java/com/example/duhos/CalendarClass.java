@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -175,6 +176,26 @@ public class CalendarClass extends AppCompatActivity {
                 Log.w(TAG, "Greška u čitanju iz baze podataka", error.toException());
             }
         });
+
+        CalendarPickerView kalendarLayout=findViewById(R.id.calendar_view);
+
+                    kalendarLayout.setOnTouchListener(new OnSwipeTouchListener(CalendarClass.this) {
+             public void onSwipeTop() {
+             }
+             public void onSwipeRight() {
+                 Intent intent = new Intent(CalendarClass.this, Songs.class);
+                 startActivity(intent);
+                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+             }
+             public void onSwipeLeft() {
+                 Intent intent = new Intent(CalendarClass.this, Molitva.class);
+                 startActivity(intent);
+                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+             }
+             public void onSwipeBottom() {
+             }
+
+         });
 
     }
 

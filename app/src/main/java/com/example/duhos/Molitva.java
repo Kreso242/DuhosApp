@@ -38,6 +38,8 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -59,6 +61,26 @@ public class Molitva extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 return (event.getAction() == MotionEvent.ACTION_MOVE);
             }
+        });
+
+        WebView molitvaLayout=findViewById(R.id.WebView);
+
+        molitvaLayout.setOnTouchListener(new OnSwipeTouchListener(Molitva.this) {
+            public void onSwipeTop() {
+            }
+            public void onSwipeRight() {
+                Intent intent = new Intent(Molitva.this, CalendarClass.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+            public void onSwipeLeft() {
+                Intent intent = new Intent(Molitva.this, Multimedia.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+            public void onSwipeBottom() {
+            }
+
         });
 
     }
