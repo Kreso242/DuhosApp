@@ -9,6 +9,8 @@ import android.widget.ImageButton;
 import com.hitomi.cmlibrary.CircleMenu;
 import com.hitomi.cmlibrary.OnMenuSelectedListener;
 
+import java.util.concurrent.TimeUnit;
+
 public class MainActivity extends AppCompatActivity {
 
     CircleMenu circleMenu;
@@ -24,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
         duhosButton = (ImageButton) findViewById(R.id.idDuhosButton);
         circleMenu = (CircleMenu) findViewById(R.id.circle_menu);
 
-        duhosButton.performClick();
-
         circleMenu.setMainMenu(Color.parseColor("#CDCDCD"), R.mipmap.duhos, R.mipmap.icon_cancel);
         circleMenu.addSubMenu(Color.parseColor("#258CFF"), R.mipmap.prayer)
                 .addSubMenu(Color.parseColor("#30A400"), R.mipmap.multimedia)
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         /*circleMenu.setScaleX((float)1.9);
         circleMenu.setScaleY((float)1.9);*/
 
+        circleMenu.openMenu();
 
         circleMenu.setOnMenuSelectedListener(new OnMenuSelectedListener() {
 

@@ -14,6 +14,13 @@
         android:roundIcon="@mipmap/duhos"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".AskQuestion"></activity>
         <activity android:name=".Alarm" />
         <activity android:name=".Songs" />
@@ -21,13 +28,7 @@
         <activity android:name=".CalendarClass" />
         <activity android:name=".Multimedia" />
         <activity android:name=".Molitva" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity"/>
 
         <receiver android:name=".ReminderBroadcast" />
     </application>
